@@ -29,7 +29,7 @@ pipeline {
     }
      stage('Create container'){
         steps {
-           sh "docker run --name nodejs-image-demo -p 81:8081 -d sumiieee/nodejs-image-demo"
+           sh "docker run --name nodejs-image-demo -d sumiieee/nodejs-image-demo"
         }
      }
     

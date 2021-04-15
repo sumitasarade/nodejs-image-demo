@@ -14,8 +14,6 @@ pipeline {
         }
     stage('Build Docker Image'){
         steps {
-            sh 'docker stop sumiieee/nodejs-image-demo'
-            sh 'docker rm sumiieee/nodejs-image-demo'
             sh 'docker rmi sumiieee/nodejs-image-demo'
             sh 'docker build -t sumiieee/nodejs-image-demo .'
         }

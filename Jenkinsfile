@@ -27,6 +27,11 @@ pipeline {
         sh 'docker push sumiieee/nodejs-image-demo'
      }
     }
+     stage('Create container'){
+        steps {
+           sh "docker run --name nodejs-image-demo -p 80:8080 -d sumiieee/nodejs-image-demo"
+        }
+     }
     
     }
 }

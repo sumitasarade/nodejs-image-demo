@@ -14,11 +14,6 @@ pipeline {
         }
     stage('Build Docker Image'){
         steps {
-            if((docker ps | grep nodejs-image-demo | wc -l) != 0) 
-            {
-                sh 'docker stop nodejs-image-demo'
-                sh 'docker rm nodejs-image-demo'
-            }
             sh 'docker rmi sumiieee/nodejs-image-demo'
             sh 'docker build -t sumiieee/nodejs-image-demo .'
         }

@@ -1,0 +1,41 @@
+#nodejs-deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-deployment
+  labels:
+    name: nodejs-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejs-app
+  template:
+    metadata:
+      name: nodejs-pod
+      labels:
+        app: nodejs-app
+    spec:
+      containers:
+      - name: nodejs-container
+        image: sumiieee/nodejs-image-demo
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: secretdocker
+
+---
+#nodejs-service
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejs-service
+  labels:
+    name: nodejs-service
+spec:
+  type: NodePort
+  ports:
+  - targetPort: 8080
+    port: 8080
+  selector:
+    app: nodejs-app

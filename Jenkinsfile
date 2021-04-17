@@ -14,8 +14,6 @@ pipeline {
         }
     stage('Build Docker Image'){
         steps {
-            sh 'kubectl delete deploy/nodejs-deployment'
-            sh 'kubectl delete service/nodejs-service'
             sh 'docker rmi sumiieee/nodejs-image-demo'
             sh 'docker build -t sumiieee/nodejs-image-demo .'
         }

@@ -26,8 +26,6 @@ pipeline {
         }
         sh 'docker push sumiieee/nodejs-image-demo'
      }
-    }
-
-    
+    }    
     }
 }
